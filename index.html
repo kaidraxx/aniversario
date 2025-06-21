@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Aniversário Karol 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0.5em 0;
+      text-shadow: 2px 2px 5px #00000055;
+    }
+
+    p {
+      font-size: 1.5em;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 2em;
+      text-shadow: 1px 1px 3px #00000044;
+    }
+
+    .botao {
+      background-color: #fff;
+      color: #ee9ca7;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #ffe6ea;
+    }
+
+    .balao {
+      position: absolute;
+      width: 50px;
+      height: 70px;
+      background: #fff;
+      border-radius: 50% 50% 45% 45%;
+      opacity: 0.7;
+      animation: subir linear infinite;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(-200px) rotate(360deg);
+      }
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .modal.ativo {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-conteudo {
+      background: #fff;
+      color: #ee9ca7;
+      padding: 30px 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      position: relative;
+      max-width: 400px;
+    }
+
+    .modal-conteudo h2 {
+      margin-top: 0;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      color: #ee9ca7;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Feliz Aniversário, Karol! 🎈</h1>
+  <p>Hoje é o seu dia especial, e eu espero que ele seja repleto de amor, sorrisos e momentos incríveis. Que todos os seus sonhos se realizem. Você merece tudo de melhor! 💖</p>
+  <button class="botao" onclick="abrirModal()">Clique para abrir uma surpresa</button>
+
+  <!-- Modal -->
+  <div class="modal" id="meuModal">
+    <div class="modal-conteudo">
+      <button class="fechar" onclick="fecharModal()">&times;</button>
+      <h2>💝 Surpresa para você, Karol!</h2>
+      <p>Você é uma pessoa incrível e merece um dia repleto de luz, carinho e felicidade. Parabéns pelo seu aniversário! 🎉✨</p>
+    </div>
+  </div>
+
+  <script>
+    function criarBalao() {
+      const balao = document.createElement("div");
+      balao.classList.add("balao");
+      balao.style.left = Math.random() * 100 + "vw";
+      balao.style.backgroundColor = "hsl(" + Math.random() * 360 + ", 100%, 80%)";
+      balao.style.animationDuration = 3 + Math.random() * 5 + "s";
+      document.body.appendChild(balao);
+      setTimeout(() => balao.remove(), 8000);
+    }
+
+    setInterval(criarBalao, 300);
+
+    function abrirModal() {
+      document.getElementById("meuModal").classList.add("ativo");
+    }
+
+    function fecharModal() {
+      document.getElementById("meuModal").classList.remove("ativo");
+    }
+  </script>
+</body>
+</html>
